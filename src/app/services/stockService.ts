@@ -7,14 +7,6 @@ import { Stock } from '../interfaces/stock.interface';
 export class StockService {
   constructor() { }
 
-  // stocklist = signal<Stock[]>([
-  //   { id: 1, name: 'Laptop', cuantity: 5 },
-  //   { id: 2, name: 'Escritorio', cuantity: 10 },
-  //   { id: 3, name: 'Silla', cuantity: 30 },
-  //   { id: 4, name: 'Tinta', cuantity: 2 },
-  //   { id: 5, name: 'Boligrafos', cuantity: 200 }
-  // ])
-
   stocklist = signal<Stock[]>(loadFromlocalStorage());
 
   saveStocksInLocalStorage = effect(() => {
@@ -27,6 +19,10 @@ export class StockService {
   
   DeleteStock(id: number){
     this.stocklist.update((list) => list.filter(stock => stock.id !== id));
+  };
+
+  DeleteAllStocks(){
+    this.stocklist.set([]);
   };
 }
 

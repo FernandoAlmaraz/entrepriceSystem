@@ -19,7 +19,7 @@ export class StockAddReactive {
   submitted = signal(false);
 
   public stockForm = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
+    name: ['', [Validators.required, Validators.minLength(4),Validators.pattern(/.*\S.*/)]],
     quantity: [0, [Validators.required, Validators.min(1)]],
     existence: [0, [Validators.required, Validators.min(1)]]
   });
@@ -27,19 +27,23 @@ export class StockAddReactive {
   onSubmit() {
     this.submitted.set(true);
 
-    if (this.stockForm.valid) {
+
+    const cleanName: string = (this.stockForm.value.name ?? '').trim();
+ 
+      if (this.stockForm.valid) {
+
       const newStock: Stock = {
-        id: Date.now(),
+        id: Math.floor(Math.random() * 100),
         name: this.stockForm.value.name!,
         quantity: this.stockForm.value.quantity!,
         existence: this.stockForm.value.existence!
       };
 
       this.stockService.AddStock(newStock);
-      
       this.stockForm.reset({ name: '', quantity: 0, existence: 0 });
       this.submitted.set(false);
-    }
+      }
+
   }
 
   hasError(fieldName: string): boolean {
@@ -54,6 +58,10 @@ export class StockAddReactive {
 
     if (field.errors['required']) {
       return this.getRequiredMessage(fieldName);
+    }
+
+    if (field.errors['pattern']) { 
+      return 'El nombre no puede contener solo espacios en blanco';
     }
 
     if (field.errors['minlength']) {

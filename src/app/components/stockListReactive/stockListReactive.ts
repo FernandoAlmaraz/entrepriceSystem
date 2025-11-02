@@ -22,4 +22,12 @@ export class StockListReactive {
       this.stockService.DeleteStock(id);
     }
   }
+
+  deleteAllStocks(): void {
+    const confirmed = confirm(`⚠️ ¿Estás seguro de eliminar TODOS los productos?\n\nSe eliminarán ${this.stockReactiveList().length} productos.\n\nEsta acción no se puede deshacer.`);
+    
+    if (confirmed) {
+      this.stockService.DeleteAllStocks();
+    }
+  }
 }

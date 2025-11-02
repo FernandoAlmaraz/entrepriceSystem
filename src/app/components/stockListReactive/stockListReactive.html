@@ -30,7 +30,7 @@
             <th><i class="fas fa-tag"></i> Nombre</th>
             <th><i class="fas fa-shopping-cart"></i> Cantidad</th>
             <th><i class="fas fa-warehouse"></i> Existencia</th>
-            <th><i class="fas fa-cog"></i> Acciones</th>
+            <th><i class="fas fa-cog"></i> Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -53,18 +53,28 @@
               }
               
               <td class="product-actions">
-                <button 
+               <button 
                   class="btn-delete"
                   (click)="deleteStock(stock.id, stock.name)"
                   title="Eliminar producto"
                 >
-                  <i class="fas fa-trash-alt"></i>
-                </button>
+                  <i class="bi bi-trash-fill"></i>
+              </button>
               </td>
             </tr>
           }
         </tbody>
       </table>
+    </div>
+    <div class="list-footer">
+      <button 
+        class="btn-delete-all"
+        (click)="deleteAllStocks()"
+        title="Eliminar todos los productos"
+      >
+        <i class="bi bi-trash3-fill"></i>
+        Eliminar Todo
+      </button>
     </div>
   }
 </div>
