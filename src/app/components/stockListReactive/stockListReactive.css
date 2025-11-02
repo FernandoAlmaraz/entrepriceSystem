@@ -184,11 +184,13 @@
 }
 
 .product-quantity,
-.product-existence {
+.product-existence{
   text-align: center;
   font-weight: 500;
 }
-
+.product-low-stock {
+  color: #ff4d4f !important;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .list-container {

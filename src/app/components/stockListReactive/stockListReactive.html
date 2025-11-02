@@ -37,8 +37,21 @@
           @for (stock of stockReactiveList(); track stock.id) {
             <tr class="product-row">
               <td class="product-name">{{ stock.name }}</td>
-              <td class="product-quantity">{{ stock.quantity }}</td>
-              <td class="product-existence">{{ stock.existence }}</td>
+              
+              @if (stock.quantity < 5) {
+                <td class="product-low-stock">{{ stock.quantity }}</td>
+              }
+              @else {
+                <td class="product-quantity">{{ stock.quantity }}</td>
+              }
+
+              @if (stock.existence < 5) {
+                <td class="product-low-stock">{{ stock.existence }}</td>
+              }
+              @else {
+                <td class="product-existence">{{ stock.existence }}</td>
+              }
+              
               <td class="product-actions">
                 <button 
                   class="btn-delete"
