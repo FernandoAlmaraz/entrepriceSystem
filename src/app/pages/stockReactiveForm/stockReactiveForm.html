@@ -10,15 +10,13 @@
   <div class="row">
     <div class="col">
       <div class="section-placeholder">
-        <h1>FORM</h1>
        <app-stock-add-reactive></app-stock-add-reactive>
       </div>
     </div>
     
     <div class="col">
       <div class="section-placeholder">
-        listas
-       <app-stock-list-reactive></app-stock-list-reactive>
+       <app-stock-list-reactive [stockReactiveList]="stockService.stocklist()" ></app-stock-list-reactive>
       </div>
     </div>
   </div>

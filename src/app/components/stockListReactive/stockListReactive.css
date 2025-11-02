@@ -1,0 +1,216 @@
+.list-container {
+  background: linear-gradient(145deg, #1f1f1f 0%, #0a0a0a 100%);
+  border: 2px solid #ffc107;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2),
+              inset 0 1px 0 rgba(255, 193, 7, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.list-title {
+  background: linear-gradient(135deg, #ffc107 0%, #ffeb3b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.3));
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-title i {
+  color: #ffc107;
+  -webkit-text-fill-color: #ffc107;
+}
+
+.list-count {
+  display: flex;
+  align-items: center;
+}
+
+.count-badge {
+  background: rgba(255, 193, 7, 0.15);
+  border: 1px solid #ffc107;
+  color: #ffc107;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.count-badge i {
+  font-size: 0.9rem;
+}
+
+/* Estado vacío */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #666;
+  text-align: center;
+  flex: 1;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: #444;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #888;
+}
+
+.empty-state small {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Lista de productos */
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #ffc107;
+  border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #ffeb3b;
+}
+
+/* Tabla */
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.product-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #1a1a1a;
+}
+
+.product-table th {
+  background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+  color: #000;
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #ffeb3b;
+}
+
+.product-table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.product-table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.product-table th i {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.product-table tbody tr {
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s ease;
+}
+
+.product-table tbody tr:hover {
+  background: #333;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.product-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.product-table td {
+  padding: 15px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.product-name {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.product-quantity,
+.product-existence {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .list-container {
+    padding: 25px 20px;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-title {
+    font-size: 1.3rem;
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .product-table th {
+    font-size: 0.8rem;
+  }
+}

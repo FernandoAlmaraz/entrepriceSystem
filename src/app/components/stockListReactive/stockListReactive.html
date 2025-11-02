@@ -1,1 +1,47 @@
-<p>stockListReactive works!</p>,
+<div class="list-container">
+  <div class="list-header">
+    <h2 class="list-title">
+      <i class="fas fa-list-ul"></i>
+      Lista de Productos
+    </h2>
+    <div class="list-count">
+      <span class="count-badge">
+        <i class="fas fa-box"></i>
+        <span>{{ stockReactiveList().length }} {{ stockReactiveList().length === 1 ? 'producto' : 'productos' }}</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Lista vacía -->
+  @if (stockReactiveList().length === 0) {
+    <div class="empty-state">
+      <i class="fas fa-inbox"></i>
+      <p>No hay productos registrados</p>
+      <small>Agrega productos usando el formulario</small>
+    </div>
+  }
+
+  <!-- Lista con productos -->
+  @if (stockReactiveList().length > 0) {
+    <div class="table-container">
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th><i class="fas fa-tag"></i> Nombre</th>
+            <th><i class="fas fa-shopping-cart"></i> Cantidad</th>
+            <th><i class="fas fa-warehouse"></i> Existencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (stock of stockReactiveList(); track stock.id) {
+            <tr class="product-row">
+              <td class="product-name">{{ stock.name }}</td>
+              <td class="product-quantity">{{ stock.quantity }}</td>
+              <td class="product-existence">{{ stock.existence }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

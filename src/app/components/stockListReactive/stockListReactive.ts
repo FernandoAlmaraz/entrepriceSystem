@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { Stock } from '../../interfaces/stock.interface';
 
 @Component({
   selector: 'app-stock-list-reactive',
@@ -7,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './stockListReactive.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StockListReactive { }
+export class StockListReactive { 
+  stockReactiveList = input.required<Stock[]>();
+}
