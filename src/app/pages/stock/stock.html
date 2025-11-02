@@ -1,0 +1,14 @@
+<h1>Stock Page</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <h1>form</h1>
+        <stock-add (OnNewStock)="stockService.AddStock($event)" ></stock-add>
+    </div>
+    <div class="col">
+        <h1>lista</h1>
+        <stock-list [stockList]="stockService.stocklist()" ></stock-list>
+    </div>
+</div>
+

@@ -1,0 +1,85 @@
+<h1>{{ this.name() | titlecase  }}</h1>
+<p>reactive-forms works!</p>,
+
+<div class="row container">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="myForm" >
+            <div class="mb-3 row ">
+                <label for="">
+                    Producto
+                </label>
+                <div class="col">
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    formControlName="product"
+                    >
+                <span class="form-text" >Error</span>
+                </div>
+
+            </div>
+            <div class="mb-3 row ">
+                <label for="">
+                    Cantidad
+                </label>
+                <div class="col">
+                    <input type="number"
+                    class="form-control"
+                    placeholder="Cantidad"
+                    formControlName="quantity"
+                    >
+                </div>
+
+            </div>
+            <div class="mb-3 row ">
+                <label for="">
+                    Existencia
+                </label>
+                <div class="col">
+                    <input type="number"
+                    class="form-control"
+                    placeholder="Existencia"
+                    formControlName="existence"
+                    >
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                    class="btn btn-primary">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<div class="row mt-2">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{ myForm.valid | json }}</pre>
+
+
+        <span>pristine</span>
+        <pre>{{ myForm.pristine | json}}</pre>
+
+
+        <span>touched</span>
+        <pre>{{ myForm.touched | json }}</pre>
+
+        <span>Error producto</span>
+        <pre>{{ myForm.controls.product.errors| json }}</pre>
+ 
+        <span>Error quantity</span>
+        <pre>{{ myForm.controls.quantity.errors | json }}</pre>
+
+        <span>Error existence</span>
+        <pre>{{ myForm.controls.existence.errors| json }}</pre>
+    </div>
+    
+</div>

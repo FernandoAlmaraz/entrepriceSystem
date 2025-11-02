@@ -1,0 +1,19 @@
+<div class="mb-5"> 
+
+
+<h1>{{ stockTitle() }}</h1>
+<ol>
+    @for ( stock of stockList(); track stock.id ;) {
+        @if (stock.quantity > 2){
+
+        <li>{{ stock.name }} - 
+          <strong [class.text-danger]="stock.quantity < 10 " 
+           [class.text-succes]="stock.quantity >= 10 "  >  {{ stock.quantity }}</strong></li>
+          }
+        @else {
+          <li style="color:red">{{ stock.name }} - 
+          <strong>  {{ stock.quantity }}</strong></li>
+        }
+    }
+</ol>
+</div>  
