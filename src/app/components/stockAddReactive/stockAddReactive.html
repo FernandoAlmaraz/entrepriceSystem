@@ -16,10 +16,17 @@
           class="form-control" 
           id="name"
           formControlName="name"
-          placeholder="Ej: Laptop HP Pavilion"
+          placeholder="Ej: Lapicero Azul "
+          [class.is-invalid]="hasError('name')"
         >
         <i class="fas fa-pencil-alt input-icon"></i>
       </div>
+      @if (hasError('name')) {
+        <small class="error-message">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ getErrorMessage('name') }}
+        </small>
+      }
     </div>
 
     <div class="form-row">
@@ -36,9 +43,16 @@
             formControlName="quantity"
             placeholder="0" 
             min="0"
+            [class.is-invalid]="hasError('quantity')"
           >
           <i class="fas fa-hashtag input-icon"></i>
         </div>
+        @if (hasError('quantity')) {
+          <small class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getErrorMessage('quantity') }}
+          </small>
+        }
       </div>
 
       <div class="form-group">
@@ -54,9 +68,16 @@
             formControlName="existence"
             placeholder="0" 
             min="0"
+            [class.is-invalid]="hasError('existence')"
           >
           <i class="fas fa-cubes input-icon"></i>
         </div>
+        @if (hasError('existence')) {
+          <small class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ getErrorMessage('existence') }}
+          </small>
+        }
       </div>
     </div>
 

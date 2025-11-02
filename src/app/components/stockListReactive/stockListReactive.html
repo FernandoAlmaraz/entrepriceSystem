@@ -30,6 +30,7 @@
             <th><i class="fas fa-tag"></i> Nombre</th>
             <th><i class="fas fa-shopping-cart"></i> Cantidad</th>
             <th><i class="fas fa-warehouse"></i> Existencia</th>
+            <th><i class="fas fa-cog"></i> Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,15 @@
               <td class="product-name">{{ stock.name }}</td>
               <td class="product-quantity">{{ stock.quantity }}</td>
               <td class="product-existence">{{ stock.existence }}</td>
+              <td class="product-actions">
+                <button 
+                  class="btn-delete"
+                  (click)="deleteStock(stock.id, stock.name)"
+                  title="Eliminar producto"
+                >
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
             </tr>
           }
         </tbody>

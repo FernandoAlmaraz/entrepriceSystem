@@ -24,6 +24,10 @@ export class StockService {
   AddStock(stockItem: Stock){
     this.stocklist.update((list) => [...list, stockItem]);
   };
+  
+  DeleteStock(id: number){
+    this.stocklist.update((list) => list.filter(stock => stock.id !== id));
+  };
 }
 
 function loadFromlocalStorage() : Stock[]{
